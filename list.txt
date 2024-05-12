@@ -1,0 +1,145 @@
+# List of scanning targets
+# * Wildcard can be used, starts with, ends with, contains are like data*, *data, *data*
+
+
+# [Wordpress-main]
+/wordpress*
+*/wp-includes*
+*/wp-admin*
+*/wp-login.php
+*/wp-includes/wlwmanifest.xml
+
+# [Wordpress-Plugins]
+/wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min.js
+/wp-content/plugins/woocommerce/assets/js/admin/users.js
+/wp-content/plugins/elementor/assets/js/notes.js
+/wp-content/plugins/contact-form-7/admin/js/scripts.js
+/wp-content/plugins/jetpack/_inc/jetpack-admin.js
+/wp-content/themes/seotheme/db.php
+/wp-content/plugins/seoplugins/db.php
+/wp-content/themes/gaukingo/db.php
+/wp-content/themes/pridmag/db.php
+/wp-content/themes/rishi/db.php
+/wp-content/plugins/linkpreview/db.php
+/wp-content/themes/jobart/db.php
+/wp-content/themes/skatepark/db.php
+/wp-content/themes/noriumportfolio/db.php
+
+# [Wordpress-Like]
+*/wp-aa.php
+
+# [Common-Paths]
+/admin
+
+# [Common-Abused-Files]
+*/xmlrpc.php
+/wp-login.php
+
+# [Common-Leaks]
+*/.DS_Store
+*/.env
+*/.git/config
+/_all_dbs
+*/META-INF/*
+*/debug/*
+*/sftp-config.json
+*/.vscode/sftp.json
+
+# [Common-Files]
+/telescope
+
+# [Common-Folders]
+*/administrator/*
+/libraries*
+/feed/atom/*
+/old/*
+/new/*
+/test/*
+/backup/*
+/temp/*
+
+# [Common-Impersonation-Folders]
+*/ecp
+
+# [Common-Backdoors]
+*/alfa-rex.php7
+*/alfanew.php
+*/wp-p.php7
+*/wsoyanz.php
+*/yanz.php
+*/cache-compat.php
+*/wp-consar.php
+*/about.php7
+*/simple.php
+*/chosen.php
+*/about.php #?520=1
+*/admin.php #?520=1
+/adminer.php/phpmyadmin
+/sample.php #?pd=1&mapname=ova.html&a=vx000&dstr=@Ovatools
+/general.php #?pd=1&mapname=ova.html&a=vx000&dstr=@Ovatools
+/inputs.php
+/login.action
+*/xmrlpc.php
+
+
+# [Common-Backdoors-.well-known]
+/.well-known/acme-challenge/mariju.php
+/.well-known/acme-challenge/cong.php
+/.well-known/acme-challenge/bs.php
+/.well-known/acme-challenge/network.php
+/.well-known/acme-challenge/index.php
+/.well-known/acme-challenge/about.php
+/.well-known/acme-challenge/adminfuns.php
+/.well-known/acme-challenge/moon.php
+/.well-known/acme-challenge/termps_1.php
+/.well-known/acme-challenge/options.php
+/.well-known/acme-challenge/wp-signup.php
+/.well-known/acme-challenge/license.php
+/.well-known/acme-challenge/wso112233.php
+/.well-known/acme-challenge/shell20211028.php
+/.well-known/acme-challenge/bala.php
+/.well-known/acme-challenge/xl2023.php
+/.well-known/acme-challenge/file.php
+/.well-known/acme-challenge/plugins.php
+/.well-known/acme-challenge/install.php
+/.well-known/acme-challenge/smaxx.php
+/.well-known/acme-challenge/dropdown.php
+/.well-known/acme-challenge/options.php
+/.well-known/acme-challenge/autoload_classmap.php
+/.well-known/acme-challenge/4price3.php
+/.well-known/acme-challenge/cjfuns.php
+/.well-known/acme-challenge/wp-sigunq.php
+/.well-known/acme-challenge/radio.php
+/.well-known/acme-challenge/admin1.php
+/.well-known/acme-challenge/class.api.php
+/.well-known/acme-challenge/themes.php
+/.well-known/acme-challenge/user.php
+/.well-known/acme-challenge/rrr.php
+/.well-known/acme-challenge/mod_recaptchalib.php
+/.well-known/acme-challenge/green.php
+/.well-known/acme-challenge/fond.php
+/.well-known/acme-challenge/class_api.php
+/.well-known/acme-challenge/ajax-restore.php
+/.well-known/acme-challenge/upfile.php
+/.well-known/acme-challenge/LA.php
+/.well-known/acme-challenge/wp-load.php
+/.well-known/acme-challenge/1.php
+/.well-known/acme-challenge/upfile_php1.php
+/.well-known/acme-challenge/server.php
+/.well-known/acme-challenge/w.php
+/.well-known/acme-challenge/adminfuns.php
+/.well-known/acme-challenge/wp-atom.php
+/.well-known/acme-challenge/g3.php
+/.well-known/acme-challenge/agenda.php
+/.well-known/acme-challenge/edit.php
+/.well-known/acme-challenge/conten.php
+/.well-known/acme-challenge/shell.php
+/.well-known/acme-challenge/fr.php
+/.well-known/acme-challenge/doc.php
+/.well-known/acme-challenge/classwithtostring.php
+/.well-known/pki-validation/xmrlpc.php
+
+# [Unsure]
+*/radio.txt
+
+# [Placeholder]

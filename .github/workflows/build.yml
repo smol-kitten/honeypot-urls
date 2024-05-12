@@ -1,0 +1,52 @@
+name: Build Lists
+
+on:
+  push:
+    # Only run if a tag is provided and its not auto-build
+    branches: [ main ]
+
+
+
+jobs:
+    build:
+        runs-on: self-hosted
+
+        permissions:
+            contents: write
+
+        steps:           
+            - uses: actions/checkout@v2
+              with: 
+                ref: ${{ github.head_ref }}
+
+            #Run the build script
+            - name: Run build script
+              run: chmod +x build.sh && chmod +x ./build_htaccess.sh && ./build.sh
+              shell: bash
+             
+
+            #Upload the build artifact
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: build
+                path: build/
+
+            - name: Push changes to GitHub
+              #Make new commit with updated lists
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                branch: auto-build
+                create_branch: true
+                commit_message: "Auto build"
+                push_options: '--force'
+                            
+
+            #Upload Release
+            - name: Create Release
+              uses: softprops/action-gh-release@v1
+              with:
+                files: build/*
+                draft: false
+                prerelease: false
+                tag_name: auto-release
