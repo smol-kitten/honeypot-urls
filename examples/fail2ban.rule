@@ -1,17 +1,22 @@
 #Ruleset for Fail2Ban to block IP addresses that have touched the honeypot
 
-### UNTESTED WONT WORK ###
+### SEMI TESTED ###
 
-#/etc/failban/jail.local
+#/etc/fail2ban/jail.local
 [fail2ban-honeypot]
 enabled = true
-filter = honeypot.conf
-action = iptables-multiport[name=Honeypot, port="http,https", protocol=tcp]
 logpath = /var/log/apache2/error.log
-maxretry = 1
-findtime = 600
-bantime = 86400
 
-#/etc/failban/filter.d/honeypot.conf
+#/etc/fail2ban/jail.conf
+[fail2ban-honeypot]
+filter = honeypot
+action = iptables-allports[name=Honeypot, protocol=tcp]
+maxretry = 1
+bantime = 10m
+
+
+#/etc/fail2ban/filter.d/honeypot.conf
 [Definition]
-failregex = Fail2Ban: <HOST> tried to access
+#"Fail2Ban: <HOST> tried to access" somewhere in line
+failregex = ^.*Fail2Ban: <HOST> tried to access.*$
+

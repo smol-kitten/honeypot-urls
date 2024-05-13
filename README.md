@@ -21,3 +21,8 @@ Using -a flag will build the .htaccess file with all lists, otherwise you can sp
 
 # Last Build
 [![Build Lists](https://github.com/smol-kitten/honeypot-urls/actions/workflows/build.yml/badge.svg)](https://github.com/smol-kitten/honeypot-urls/actions/workflows/build.yml)
+
+# Clone Repository Pre-Build
+```bash
+git clone --branch auto-build https://github.com/smol-kitten/honeypot-urls
+```

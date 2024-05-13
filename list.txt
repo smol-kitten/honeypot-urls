@@ -29,7 +29,7 @@
 */wp-aa.php
 
 # [Common-Paths]
-/admin
+/admin*
 
 # [Common-Abused-Files]
 */xmlrpc.php
@@ -38,15 +38,15 @@
 # [Common-Leaks]
 */.DS_Store
 */.env
-*/.git/config
-/_all_dbs
+*/.git/config*
+/_all_dbs*
 */META-INF/*
 */debug/*
 */sftp-config.json
 */.vscode/sftp.json
 
 # [Common-Files]
-/telescope
+/telescope*
 
 # [Common-Folders]
 */administrator/*
@@ -59,7 +59,7 @@
 /temp/*
 
 # [Common-Impersonation-Folders]
-*/ecp
+*/ecp*
 
 # [Common-Backdoors]
 */alfa-rex.php7
@@ -74,7 +74,7 @@
 */chosen.php
 */about.php #?520=1
 */admin.php #?520=1
-/adminer.php/phpmyadmin
+/adminer.php/phpmyadmin*
 /sample.php #?pd=1&mapname=ova.html&a=vx000&dstr=@Ovatools
 /general.php #?pd=1&mapname=ova.html&a=vx000&dstr=@Ovatools
 /inputs.php

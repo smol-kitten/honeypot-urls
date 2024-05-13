@@ -1,6 +1,6 @@
 <?php
 
-### UNTESTED ###
+### SEMI TESTED ###
 
 /**
  * Prepend this file using the prepend directive in php.ini or .user.ini
@@ -12,17 +12,17 @@
 
 // Configuration
 $HL_blocklist = '/path/to/.honeylist.php';
-$HL_defaultAction = '403'; //404, 403, fail2ban
-$HL_loadedLists = ['list1', 'list2', 'list3'];
+$HL_defaultAction = 'fail2ban'; //404, 403, fail2ban(403 and block)
+$HL_loadedLists = ['wordpress_main', 'wordpress_plugins', 'wordpress_like', 'common_paths', 'common_abused_files', 'common_leaks', 'common_files', 'common_folders', 'common_impersonation_folders', 'common_backdoors', 'common_backdoors_well_known'];
 
 // Load the list of paths
-$HL_paths = require $HL_blocklist;
+require $HL_blocklist;
 
 // Get the current request path
 $HL_path = $_SERVER['REQUEST_URI'];
 
 // Main
-if (HL_checkPath($HL_path, $HL_paths)) {
+if (HL_checkPath($HL_path, $HL_loadedLists)) {
     if ($HL_defaultAction === '403') {
         HL_403();
     } elseif ($HL_defaultAction === 'fail2ban') {
@@ -40,11 +40,12 @@ if (HL_checkPath($HL_path, $HL_paths)) {
  * @return bool
  */
 function HL_checkPath($path, $lists) {
+    global $honeylist;
     #list has $honeylist['listname'][type]
     #types are starts, ends, contains, exact
     foreach ($lists as $list) {
-        foreach ($list as $type => $list) {
-            foreach ($list as $item) {
+        foreach ($honeylist[$list] as $type => $names ) {
+            foreach ($names as $item) {
                 if ($type === 'starts' && strpos($path, $item) === 0) {
                     return true;
                 }
@@ -74,15 +75,18 @@ function HL_403() {
 
 /**
  * Fail2Ban the request
+ * Problematic with cloudflare if used using firewall rules
+ * Use a appropriate fail2ban configuration including cloudflare support
  * @return void
  */
 function HL_fail2ban() {
     // Add the IP to the fail2ban list
-    // block the request
-    HL_403();
     //print error message to the log to trigger the fail2ban
     $msg = "Fail2Ban: " . $_SERVER['REMOTE_ADDR'] . " tried to access " . $_SERVER['REQUEST_URI'];
     error_log($msg);
+
+    // block the request
+    HL_403();
 }
 
 /**
