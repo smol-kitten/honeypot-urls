@@ -41,12 +41,34 @@ jobs:
                 commit_message: "Auto build"
                 push_options: '--force'
                             
-
-            #Upload Release
+            #Upload Release Lists
             - name: Create Release
               uses: softprops/action-gh-release@v1
               with:
                 files: build/*
                 draft: false
                 prerelease: false
-                tag_name: auto-release
+                tag_name: auto-release-lists
+
+            #Upload Release-Scripts
+            - name: Create Release
+              uses: softprops/action-gh-release@v1
+              with:
+                files: build/*
+                draft: false
+                prerelease: false
+                tag_name: auto-release-scripts
+
+            #tar the build folder
+            - name: Tar build folder
+              run: tar -czvf build.tar.gz build
+              shell: bash
+
+            #Upload Release Complete
+            - name: Create Release
+              uses: softprops/action-gh-release@v1
+              with:
+                 files: build.tar.gz
+                 draft: false
+                 prerelease: false
+                 tag_name: auto-release-complete

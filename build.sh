@@ -4,7 +4,7 @@
 BASEFILE="list.txt"
 
 # Recreate the build directory
-rm build -R; mkdir -p build
+rm build -R; mkdir -p build/scripts
 
 ### Compile the lists
 
@@ -117,9 +117,11 @@ echo "Using -a flag will build the .htaccess file with all lists, otherwise you 
 echo "" >> $README_FILE
 
 #copy build_htaccess.sh to build directory
-cp build_htaccess.sh build/
+cp build_htaccess.sh build/scripts/
 #copy scan.sh to build directory
-cp scan.sh build/
+cp scan.sh build/scripts/
+#copy collect.sh to build directory
+cp collect.sh build/scripts/
 #copy examples directory to build directory
 cp -r examples build/
 
