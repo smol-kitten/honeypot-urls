@@ -5,6 +5,9 @@ BUILDDIR="../build"
 BASEFILE="../srclist/list.txt"
 MAININDEX="$BUILDDIR/index/index.txt"
 
+# CD to the script directory
+cd "$(dirname "$0")"
+
 # Recreate the build directory
 rm $BUILDDIR -R; mkdir -p $BUILDDIR/scripts; mkdir -p $BUILDDIR/index
 
