@@ -19,7 +19,8 @@ mkdir -p $BUILDDIR/examples
 
 ### Compile the lists
 # Create the index file
-echo "# Lists" > $MAININDEX
+echo "#Lists" > $MAININDEX
+echo ".honeylist.php" >> $MAININDEX
 
 ## Intermediate in build and Plaintext [ListName].txt for each list (starting with "# [" in the list) 
 TEXT_LIST_GROUPS=$(grep -r "# \[" $BASEFILE | sed 's/.*# \[//g' | sed 's/\].*//g')
