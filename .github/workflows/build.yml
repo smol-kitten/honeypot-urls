@@ -19,7 +19,7 @@ jobs:
 
             #Run the build script
             - name: Run build script
-              run: chmod +x build.sh && chmod +x ./build_htaccess.sh && ./build.sh
+              run: chmod +x scripts/build.sh && chmod +x scripts/build_htaccess.sh && scripts/build.sh
               shell: bash
              
 

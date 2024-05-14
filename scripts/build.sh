@@ -5,8 +5,17 @@ BUILDDIR="../build"
 BASEFILE="../srclist/list.txt"
 MAININDEX="$BUILDDIR/index/index.txt"
 
+# CD to the script directory
+cd "$(dirname "$0")"
+
 # Recreate the build directory
-rm $BUILDDIR -R; mkdir -p $BUILDDIR/scripts; mkdir -p $BUILDDIR/index
+if [ -d $BUILDDIR ]; then
+    rm $BUILDDIR -R; 
+fi
+
+mkdir -p $BUILDDIR/scripts; 
+mkdir -p $BUILDDIR/index; 
+mkdir -p $BUILDDIR/examples
 
 ### Compile the lists
 # Create the index file
@@ -132,7 +141,7 @@ cp scan.sh $BUILDDIR/scripts/
 #copy collect.sh to build directory
 cp collect.sh $BUILDDIR/scripts/
 #copy examples directory to build directory
-cp -r examples $BUILDDIR/
+cp -r ../examples $BUILDDIR/
 
 # Done
 exit 0
