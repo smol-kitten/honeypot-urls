@@ -2,7 +2,7 @@
 # Build script for the lists
 
 # Permutations of the lists to make .htaccess files for blocking
-BUILD_DIR="build"
+BUILD_DIR="../build"
 # Create the .htaccess file
 
 #-h flag
@@ -97,6 +97,8 @@ for LIST_CHOICE in ${LIST_CHOICE_ARRAY[@]}; do
     done <"$BUILD_DIR/$LIST_CHOICE_FILE"
     echo "" >> $HTACCESS_FILE
 done
+
+mv $HTACCESS_FILE $BUILD_DIR/examples/.htaccess
 
 exit 0
 
