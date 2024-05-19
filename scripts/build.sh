@@ -81,6 +81,9 @@ for TEXT_LIST_GROUP in $TEXT_LIST_GROUPS; do
             continue
         fi
 
+        #Ensure its escaped for PHP \ " ' and $
+        line=$(echo $line | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | sed "s/'/\\'/g" | sed 's/\$/\\$/g')
+        
         #check if line has a * at the start, remove it and add to ends array
         if [[ $line == \** ]]; then
             line=$(echo $line | sed 's/\*//')
@@ -143,6 +146,12 @@ cp scan.sh $BUILDDIR/scripts/
 cp collect.sh $BUILDDIR/scripts/
 #copy examples directory to build directory
 cp -r ../examples $BUILDDIR/
+
+#Add lists in prepend example
+# $BUILDDIR//examples/php/prepend.php '$list1', '$list2', '$list3' replace §LISTS§
+LISTS=$(grep -r "# \[" $BASEFILE | sed 's/.*# \[//g' | sed 's/\].*//g' | tr '\n' ', ' | sed 's/, $//')
+sed -i "s/§LISTS§/$LISTS/g" $BUILDDIR/examples/php/prepend.php
+
 
 # Done
 exit 0

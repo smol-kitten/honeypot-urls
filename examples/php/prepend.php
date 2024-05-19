@@ -13,7 +13,7 @@
 // Configuration
 $HL_blocklist = '/path/to/.honeylist.php';
 $HL_defaultAction = 'fail2ban'; //404, 403, fail2ban(403 and block)
-$HL_loadedLists = ['wordpress_main', 'wordpress_plugins', 'wordpress_like', 'common_paths', 'common_abused_files', 'common_leaks', 'common_files', 'common_folders', 'common_impersonation_folders', 'common_backdoors', 'common_backdoors_well_known'];
+$HL_loadedLists = [§LISTS§];
 
 // Load the list of paths
 require $HL_blocklist;
