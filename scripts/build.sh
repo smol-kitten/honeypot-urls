@@ -90,8 +90,13 @@ for TEXT_LIST_GROUP in $TEXT_LIST_GROUPS; do
         #Ensure its escaped for PHP \ " ' and $
         line=$(echo $line | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | sed "s/'/\\'/g" | sed 's/\$/\\$/g')
         
-        #check if line has a * at the start, remove it and add to ends array
+       #check if line has a * at the start and end, remove them and add to contains array
         if [[ $line == \** ]]; then
+            #remove all *
+            line=$(echo $line | tr -d '*')        
+            echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['contains'][] = \"$line\";" >> $HONEYLIST_FILE
+         #check if line has a * at the start, remove it and add to ends array
+        elif [[ $line == \** ]]; then
             #remove all *
             line=$(echo $line | tr -d '*')
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['ends'][] = \"$line\";" >> $HONEYLIST_FILE
@@ -100,11 +105,7 @@ for TEXT_LIST_GROUP in $TEXT_LIST_GROUPS; do
             #remove all *
             line=$(echo $line | tr -d '*')
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['starts'][] = \"$line\";" >> $HONEYLIST_FILE
-        #check if line has a * at the start and end, remove them and add to contains array
-        elif [[ $line == \** ]]; then
-            #remove all *
-            line=$(echo $line | tr -d '*')        
-            echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['contains'][] = \"$line\";" >> $HONEYLIST_FILE
+        
         #else add to exact array
         else
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['exact'][] = \"$line\";" >> $HONEYLIST_FILE
