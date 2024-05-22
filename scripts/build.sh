@@ -92,15 +92,18 @@ for TEXT_LIST_GROUP in $TEXT_LIST_GROUPS; do
         
         #check if line has a * at the start, remove it and add to ends array
         if [[ $line == \** ]]; then
-            line=$(echo $line | sed 's/\*//')
+            #remove all *
+            line=$(echo $line | tr -d '*')
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['ends'][] = \"$line\";" >> $HONEYLIST_FILE
         #check if line has a * at the end, remove it and add to starts array
         elif [[ $line == *\** ]]; then
-            line=$(echo $line | sed 's/\*//')
+            #remove all *
+            line=$(echo $line | tr -d '*')
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['starts'][] = \"$line\";" >> $HONEYLIST_FILE
         #check if line has a * at the start and end, remove them and add to contains array
         elif [[ $line == \** ]]; then
-            line=$(echo $line | sed 's/\*//')
+            #remove all *
+            line=$(echo $line | tr -d '*')        
             echo "\$honeylist['${TEXT_LIST_GROUP_SAFE}']['contains'][] = \"$line\";" >> $HONEYLIST_FILE
         #else add to exact array
         else
