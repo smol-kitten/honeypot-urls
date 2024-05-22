@@ -1,0 +1,16 @@
+#sql-admin
+*/pma/*
+*phpmy-admin*
+*php-my-admin*
+*mysqlmanager*
+*/mysql/*
+*/mysql-admin/*
+*sql-admin*
+*myadmin*
+*/dbadmin/*
+*/db-admin/*
+*/webdb/*
+*/sqladmin/*
+*/phppma/*
+*/sqlmanager/*
+

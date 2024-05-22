@@ -1,0 +1,12 @@
+#keywords
+*tenda.sh*
+*tplink*
+*yddq.pdf*
+*qualys_url*
+*alfa_data*
+
+*chmod*
+*wget*
+*eval*
+*stdin*
+

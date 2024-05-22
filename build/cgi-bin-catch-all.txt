@@ -1,0 +1,4 @@
+#cgi-bin-catch-all
+/cgi-bin/*
+*/cgi-bin/*
+
