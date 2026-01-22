@@ -1,0 +1,8 @@
+#wordpress-catch-all
+/wordpress*
+*/wp-includes*
+*/wp-admin*
+*/wp-login.php
+*/wp-includes/*
+*/wp-content/*
+

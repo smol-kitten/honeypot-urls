@@ -1,0 +1,4 @@
+#common-abused-files
+*/xmlrpc.php
+/wp-login.php
+
