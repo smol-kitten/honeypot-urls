@@ -5,6 +5,10 @@ on:
     # Only run if a tag is provided and its not auto-build
     branches: [ main ]
 
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
     build:
         runs-on: self-hosted
@@ -26,6 +30,7 @@ jobs:
             #Upload the build artifact
             - name: Upload build artifact
               uses: actions/upload-artifact@v7
+                  retention-days: 3
               continue-on-error: true  # tolerate artifact storage-quota failures
               with:
                 name: build
