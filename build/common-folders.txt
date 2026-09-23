@@ -1,0 +1,11 @@
+#common-folders
+/admin*
+*/administrator/*
+/libraries*
+/feed/atom/*
+/old/*
+/new/*
+/test/*
+/backup/*
+/temp/*
+
