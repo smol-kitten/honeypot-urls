@@ -1,0 +1,12 @@
+#common-leaks
+*/.ds_store
+*/.env
+*/.git/config*
+/_all_dbs*
+*/meta-inf/*
+*/debug/*
+*/sftp-config.json
+*/.vscode/sftp.json
+*/vendor/*
+*/phpunit/*
+
