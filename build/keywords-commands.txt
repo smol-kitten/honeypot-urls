@@ -1,0 +1,6 @@
+#keywords-commands
+*chmod*
+*wget*
+*eval*
+*stdin*
+
